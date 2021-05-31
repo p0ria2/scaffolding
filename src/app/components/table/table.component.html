@@ -1,5 +1,5 @@
 <nz-card>
-    <nz-table #table dir="rtl" [nzData]="users">
+    <nz-table #table dir="rtl" [nzData]="items">
         <thead>
             <tr>
                 <th *ngFor="let column of columns" [nzSortFn]="column.sortFn" [nzFilters]="column.filters"

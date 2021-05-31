@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'scaffolding';
+  userType = User;
+  users: Partial<User>[] = [
+    {
+      firstName: 'سینا',
+      lastName: 'آقاجانی',
+      isAdmin: true
+    },
+    {
+      firstName: 'پوریا',
+      lastName: 'امن زاده',
+      isAdmin: false
+    }
+  ]
 }

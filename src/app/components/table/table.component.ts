@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { getTableOptions } from 'src/app/decorators/table.decorator';
 import { User } from 'src/app/models/user.model';
 import { TableFieldOptions } from './../../decorators/table.decorator';
@@ -9,24 +9,14 @@ import { TableFieldOptions } from './../../decorators/table.decorator';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  columns: TableFieldOptions<User>[] = [];
-  users: Partial<User>[] = [
-    {
-      firstName: 'سینا',
-      lastName: 'آقاجانی',
-      isAdmin: true
-    },
-    {
-      firstName: 'پوریا',
-      lastName: 'امن زاده',
-      isAdmin: false
-    }
-  ]
+  @Input() itemType;
+  @Input() items = []
+  columns: TableFieldOptions<any>[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-    this.columns = getTableOptions(User);
+    this.columns = getTableOptions(this.itemType);
   }
 
 
