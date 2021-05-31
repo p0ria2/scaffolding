@@ -25,3 +25,12 @@ export const getDecoratedPropValue = <T>(classType: any, propertyName: string, d
     return Reflect.getMetadata(decoratorName, classType, propertyName) ||
         Reflect.getMetadata(decoratorName, classType?.prototype, propertyName)
 }
+
+export const decorateClass = (classType: any, decoratorName: string | symbol, decoratorValue: any) => {
+    Reflect.defineMetadata(decoratorName, decoratorValue, classType);
+}
+
+export const getDecoratedClassValue = <T>(classType: any, decoratorName: string | symbol): T => {
+    return Reflect.getMetadata(decoratorName, classType) ||
+        Reflect.getMetadata(decoratorName, classType?.prototype)
+}

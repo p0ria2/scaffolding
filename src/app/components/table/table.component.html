@@ -1,0 +1,23 @@
+<nz-card>
+    <nz-table #table dir="rtl" [nzData]="users">
+        <thead>
+            <tr>
+                <th *ngFor="let column of columns" [nzSortFn]="column.sortFn" [nzFilters]="column.filters"
+                    [nzFilterFn]="column.filterFn" [nzFilterMultiple]="column.filterMultiple">
+                    {{ column.title }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of table.data; let i = index">
+                <td *ngFor="let column of columns">
+                    <ng-container *ngIf="column.valueFn;else dynamicComponent">{{column.valueFn(user, i)}}
+                    </ng-container>
+                    <ng-template #dynamicComponent>
+                        <ngx-dynamic-hooks [content]="column.component" [context]="user"></ngx-dynamic-hooks>
+                    </ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</nz-card>

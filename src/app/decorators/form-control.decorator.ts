@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { decoratePropery, getDecoratedProps, getDecoratedPropValue } from './decorator-utils';
 export interface FormControlOptions {
     name?: string
