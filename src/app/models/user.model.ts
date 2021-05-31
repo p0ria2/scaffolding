@@ -7,7 +7,11 @@ import { Table } from "../decorators/table.decorator";
   },
   {
     title: 'کاربر',
-    valueFn: user => `${user.firstName} ${user.lastName}`
+    valueFn: user => `${user.firstName} ${user.lastName}`,
+    sortFn: (a: User, b: User) =>
+      `${a.firstName} ${a.lastName}`.localeCompare(
+        `${b.firstName} ${b.lastName}`,
+      ),
   },
   {
     title: 'ادمین',

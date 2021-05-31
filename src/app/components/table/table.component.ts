@@ -12,9 +12,14 @@ export class TableComponent implements OnInit {
   columns: TableFieldOptions<User>[] = [];
   users: Partial<User>[] = [
     {
+      firstName: 'سینا',
+      lastName: 'آقاجانی',
+      isAdmin: true
+    },
+    {
       firstName: 'پوریا',
       lastName: 'امن زاده',
-      isAdmin: true
+      isAdmin: false
     }
   ]
 

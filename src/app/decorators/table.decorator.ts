@@ -4,7 +4,7 @@ export interface TableFieldOptions<T> {
     title?: string
     valueFn?: ((item: T, index) => any)
     component?: string
-    sortFn?: (a, b) => number
+    sortFn?: (a: T, b: T) => number
     filters?: { text: string, value: any }[]
     filterFn?: (value, item: T) => boolean
     filterMultiple?: boolean
